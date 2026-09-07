@@ -35,4 +35,14 @@ export class EmpleadoListaComponent implements OnInit {
     });
   }
 
+  cambiarEstado(empleado: Empleado): void {
+    this.empleadoService.cambiarEstado(empleado.id).subscribe({
+      next: (actualizado) => {
+        const i = this.empleados.findIndex(e => e.id === actualizado.id);
+        this.empleados[i] = actualizado;
+      },
+      error: () => this.error = 'No se pudo cambiar el estado'
+    });
+  }
+
 }
