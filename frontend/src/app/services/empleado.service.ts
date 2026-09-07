@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Empleado } from '../models/empleado';
 import { Observable } from 'rxjs';
+import { EmpleadoRequest } from '../models/empleado-request';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class EmpleadoService {
 
   cambiarEstado(id: number): Observable<Empleado> {
     return this.http.put<Empleado>(`${this.url}/${id}/asistencia`, {});
+  }
+
+  create(empleado: EmpleadoRequest): Observable<Empleado>{
+    return this.http.post<Empleado>(this.url, empleado);
   }
   
   
