@@ -1,0 +1,26 @@
+<h2>Registrar empleado</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="campo">
+    <label>Nombre completo</label>
+    <input type="text" formControlName="nombreCompleto">
+    @if (form.get('nombreCompleto')?.invalid && form.get('nombreCompleto')?.touched) {
+      <small class="error">El nombre completo es obligatorio</small>
+    }
+  </div>
+
+  <div class="campo">
+    <label>Puesto</label>
+    <input type="text" formControlName="puesto">
+    @if (form.get('puesto')?.invalid && form.get('puesto')?.touched) {
+      <small class="error">El puesto es obligatorio</small>
+    }
+  </div>
+
+  @if (errorBackend) {
+    <p class="error">{{ errorBackend }}</p>
+  }
+
+  <button type="submit">Guardar</button>
+</form>
