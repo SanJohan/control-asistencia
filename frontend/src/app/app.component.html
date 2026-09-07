@@ -1,2 +1,6 @@
-<app-empleado-lista></app-empleado-lista>
+<div class="contenedor">
+  <h1>Control de Asistencia</h1>
+  <app-empleado-form (empleadoCreado)="lista.cargar()"></app-empleado-form>
+  <app-empleado-lista #lista></app-empleado-lista>
+</div>
 

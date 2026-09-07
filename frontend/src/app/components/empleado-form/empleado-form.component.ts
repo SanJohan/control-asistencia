@@ -21,7 +21,7 @@ export class EmpleadoFormComponent {
 
   constructor(private fb: FormBuilder, private empleadoService: EmpleadoService) {}
 
-    onSubmit(): void {
+  onSubmit(): void {
     this.errorBackend = '';
 
     if (this.form.invalid) {
