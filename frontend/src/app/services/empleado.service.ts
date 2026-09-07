@@ -15,6 +15,11 @@ export class EmpleadoService {
   getAll(): Observable<Empleado[]> {
     return this.http.get<Empleado[]>(this.url);
   }
+
+  cambiarEstado(id: number): Observable<Empleado> {
+    return this.http.put<Empleado>(`${this.url}/${id}/asistencia`, {});
+  }
+  
   
 
 }
