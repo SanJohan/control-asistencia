@@ -1,0 +1,38 @@
+<h2>Empleados</h2>
+
+@if (error) {
+  <p class="error">{{ error }}</p>
+}
+
+@if (cargando) {
+  <p>Cargando...</p>
+}
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre completo</th>
+      <th>Puesto</th>
+      <th>Estado</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (empleado of empleados; track empleado.id) {
+      <tr>
+        <td>{{ empleado.nombreCompleto }}</td>
+        <td>{{ empleado.puesto }}</td>
+        <td>
+          <span  [class.presente]="empleado.estado === 'PRESENTE'">
+            {{ empleado.estado }}
+          </span>
+        </td>
+        <td>
+          <button >Cambiar Estado</button>
+        </td>
+      </tr>
+    } @empty {
+      <tr><td colspan="4">No hay empleados registrados</td></tr>
+    }
+  </tbody>
+</table>
